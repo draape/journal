@@ -4,24 +4,64 @@ export default {
   type: "document",
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "string",
-      required: true
+      title: "Text",
+      name: "text",
+      type: "array",
+      of: [{ type: "block" }]
     },
     {
-      title: "Slug",
-      name: "slug",
-      type: "slug",
-      options: {
-        source: "title",
-        maxLength: 200,
-        slugify: input =>
-          input
-            .toLowerCase()
-            .replace(/\s+/g, "-")
-            .slice(0, 200)
-      }
+      title: "Author",
+      name: "author",
+      type: "reference",
+      to: [{ type: "person" }],
+      validation: Rule => Rule.required()
+    },
+    {
+      title: "Tag people",
+      name: "taggedPersons",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "person" }]
+        }
+      ]
+    },
+    {
+      title: "Published",
+      name: "published",
+      type: "datetime",
+      validation: Rule => Rule.required()
+    },
+    {
+      title: "Images",
+      name: "images",
+      type: "array",
+      of: [
+        {
+          name: "postImage",
+          title: "Image",
+          type: "image",
+          options: {
+            hotspot: true
+          }
+        }
+      ]
     }
-  ]
+  ],
+  initialValue: () => ({
+    published: new Date().toISOString()
+  }),
+  preview: {
+    select: { author: "author.name", date: "published" },
+    prepare(selection) {
+      const { author, date } = selection;
+      const [year, month, day] = date.split("T")[0].split("-");
+
+      return {
+        title: `${day}.${month}.${year}`,
+        subtitle: `By: ${author ? author : "unknown"}`
+      };
+    }
+  }
 };
