@@ -2,7 +2,7 @@ require("dotenv").config()
 
 module.exports = {
   plugins: [
-    "gatsby-plugin-postcss",
+    "gatsby-plugin-sass",
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-source-sanity",
