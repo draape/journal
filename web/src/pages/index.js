@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import BlockContent from "@sanity/block-content-to-react"
 import { imageUrlFor } from "../lib/image-url"
+import Layout from "../components/Layout/layout"
 
 const mapEdgesToNodes = data => {
   if (!data.edges) return []
@@ -24,7 +25,7 @@ const PostPage = props => {
     props.data && props.data.posts && mapEdgesToNodes(props.data.posts)
 
   return (
-    <>
+    <Layout>
       {posts &&
         posts.map(post => (
           <>
@@ -66,7 +67,7 @@ const PostPage = props => {
             <div className={"comments"}>No comments yet</div>
           </>
         ))}
-    </>
+    </Layout>
   )
 }
 
