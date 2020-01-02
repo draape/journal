@@ -2,23 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import BlockContent from "@sanity/block-content-to-react"
 import { imageUrlFor } from "../lib/image-url"
+import { buildImageObj, mapEdgesToNodes } from "../lib/helpers"
 import Layout from "../components/layout/Layout"
-
-const mapEdgesToNodes = data => {
-  if (!data.edges) return []
-  return data.edges.map(edge => edge.node)
-}
-
-const buildImageObj = source => {
-  const imageObj = {
-    asset: { _ref: source.asset._ref || source.asset._id },
-  }
-
-  if (source.crop) imageObj.crop = source.crop
-  if (source.hotspot) imageObj.hotspot = source.hotspot
-
-  return imageObj
-}
+import Byline from "../components/byline/byline"
 
 const PostPage = props => {
   const posts =
@@ -29,21 +15,11 @@ const PostPage = props => {
       {posts &&
         posts.map(post => (
           <>
-            <header className={"people"}>
-              <img
-                src={imageUrlFor(buildImageObj(post.author.image))
-                  .width(50)
-                  .height(50)
-                  .url()}
-                alt={post.author.name}
-              />
-              <h2>
-                <span className={"author"}>{post.author.name}</span>
-                {post.taggedPersons.map(person => {
-                  return person.name
-                })}
-              </h2>
-            </header>
+            <Byline
+              author={post.author}
+              taggedPersons={post.taggedPersons}
+              publishedDate={post.published}
+            />
             {post.images &&
               post.images.map(image => (
                 <img
@@ -85,6 +61,7 @@ export const query = graphql`
               }
             }
           }
+          published
           taggedPersons {
             name
           }

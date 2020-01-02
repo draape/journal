@@ -1,0 +1,23 @@
+.byline {
+    display: flex;
+    align-items: center;
+    height: 6.5rem;
+
+    &__author_image {
+        border-radius: 50%;
+        width: 4.5rem;
+        height: 4.5rem;
+        padding: 1rem;
+    }
+
+    h2 {
+        font: {
+            size: 1.125rem;
+            weight: normal;
+        }
+    }
+
+    &__author {
+        font-weight: bold;
+    }
+}
