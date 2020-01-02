@@ -9,7 +9,8 @@ export default {
     {
       name: "name",
       title: "Name",
-      type: "string"
+      type: "string",
+      validation: Rule => Rule.required()
     },
     {
       name: "image",
@@ -17,7 +18,8 @@ export default {
       type: "image",
       options: {
         hotspot: true
-      }
+      },
+      validation: Rule => Rule.required()
     }
   ],
   preview: {

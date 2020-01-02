@@ -28,6 +28,21 @@ const PostPage = props => {
       {posts &&
         posts.map(post => (
           <>
+            <header className={"people"}>
+              <img
+                src={imageUrlFor(buildImageObj(post.author.image))
+                  .width(50)
+                  .height(50)
+                  .url()}
+                alt={post.author.name}
+              />
+              <h2>
+                <span className={"author"}>{post.author.name}</span>
+                {post.taggedPersons.map(person => {
+                  return person.name
+                })}
+              </h2>
+            </header>
             {post.images &&
               post.images.map(image => (
                 <img
@@ -38,7 +53,17 @@ const PostPage = props => {
                 />
               ))}
 
+            <div className={"controls"}>
+              <a href="#like">Like</a>
+              <a href="#comment">Comment</a>
+              <a href="#download">Download</a>
+            </div>
+
+            <div className={"likers"}>Someone likes this</div>
+
             <BlockContent blocks={post.text} />
+
+            <div className={"comments"}>No comments yet</div>
           </>
         ))}
     </>
@@ -51,6 +76,17 @@ export const query = graphql`
       edges {
         node {
           id
+          author {
+            name
+            image {
+              asset {
+                _id
+              }
+            }
+          }
+          taggedPersons {
+            name
+          }
           text: _rawText
           images {
             asset {
