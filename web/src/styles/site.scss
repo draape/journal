@@ -1,0 +1,13 @@
+@import "variables";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: $grey;
+
+    font: {
+        family: 'Helvetica', sans-serif;
+        size: 100%;
+        color: $black;
+    }
+}
