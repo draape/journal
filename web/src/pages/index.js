@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import BlockContent from "@sanity/block-content-to-react"
 import { imageUrlFor } from "../lib/image-url"
-import Layout from "../components/Layout/layout"
+import Layout from "../components/layout/Layout"
 
 const mapEdgesToNodes = data => {
   if (!data.edges) return []

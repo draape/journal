@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    height: 80px;
+    width: 100%;
+
+    &__site-title {
+        width: 100%;
+        text-align: center;
+    }
+}
