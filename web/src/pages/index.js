@@ -1,15 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { imageUrlFor } from "../lib/image-url"
-import {
-  buildImageObj,
-  mapEdgesToNodes,
-  buildPersonsList,
-} from "../lib/helpers"
+import { buildImageObj, mapEdgesToNodes } from "../lib/helpers"
 import BlockContent from "@sanity/block-content-to-react"
 import Layout from "../components/layout/Layout"
 import Byline from "../components/byline/byline"
 import Controls from "../components/controls/controls"
+import Likes from "../components/likes/likes"
 import PostBody from "../components/post-body/post-body"
 
 const PostPage = props => {
@@ -31,19 +28,14 @@ const PostPage = props => {
                 <img
                   src={imageUrlFor(buildImageObj(image.image))
                     .width(600)
-                    .height(Math.floor((9 / 16) * 600))
+                    .height(600)
                     .url()}
                 />
               ))}
 
             <Controls />
 
-            <div className={"likes"}>
-              {post.likes &&
-                post.likes.length > 0 &&
-                "Likt av " +
-                  buildPersonsList(post.likes.map(likes => likes.name))}
-            </div>
+            <Likes persons={post.likes} />
 
             <PostBody text={post.text} />
 
