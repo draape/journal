@@ -13,3 +13,12 @@ export function mapEdgesToNodes(data) {
   if (!data.edges) return []
   return data.edges.map(edge => edge.node)
 }
+
+export function buildPersonsList(persons, prependComma = false) {
+  return (
+    (prependComma ? ", " : "") +
+    [persons.slice(0, -1).join(", "), persons.slice(-1)[0]].join(
+      persons.length < 2 ? "" : " og "
+    )
+  )
+}

@@ -1,18 +1,9 @@
 import React from "react"
 
 import { imageUrlFor } from "../../lib/image-url"
-import { buildImageObj } from "../../lib/helpers"
+import { buildImageObj, buildPersonsList } from "../../lib/helpers"
 
 import "./byline.scss"
-
-const buildPersonsList = persons => {
-  return (
-    ", " +
-    [persons.slice(0, -1).join(", "), persons.slice(-1)[0]].join(
-      persons.length < 2 ? "" : " og "
-    )
-  )
-}
 
 const Byline = ({ author, taggedPersons, publishedDate }) => (
   <header className={"byline"}>
@@ -28,7 +19,10 @@ const Byline = ({ author, taggedPersons, publishedDate }) => (
       <span className={"byline__author"}>{author.name}</span>
       {taggedPersons &&
         taggedPersons.length > 0 &&
-        buildPersonsList(taggedPersons.map(person => person.name))}
+        buildPersonsList(
+          taggedPersons.map(person => person.name),
+          true
+        )}
       <br />
       {publishedDate &&
         new Date(publishedDate).toLocaleDateString(undefined, {

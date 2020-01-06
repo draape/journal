@@ -1,10 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
-import BlockContent from "@sanity/block-content-to-react"
 import { imageUrlFor } from "../lib/image-url"
-import { buildImageObj, mapEdgesToNodes } from "../lib/helpers"
+import {
+  buildImageObj,
+  mapEdgesToNodes,
+  buildPersonsList,
+} from "../lib/helpers"
+import BlockContent from "@sanity/block-content-to-react"
 import Layout from "../components/layout/Layout"
 import Byline from "../components/byline/byline"
+import PostBody from "../components/post-body/post-body"
 
 const PostPage = props => {
   const posts =
@@ -23,7 +28,7 @@ const PostPage = props => {
             {post.images &&
               post.images.map(image => (
                 <img
-                  src={imageUrlFor(buildImageObj(image))
+                  src={imageUrlFor(buildImageObj(image.image))
                     .width(600)
                     .height(Math.floor((9 / 16) * 600))
                     .url()}
@@ -36,11 +41,24 @@ const PostPage = props => {
               <a href="#download">Download</a>
             </div>
 
-            <div className={"likers"}>Someone likes this</div>
+            <div className={"likes"}>
+              {post.likes &&
+                post.likes.length > 0 &&
+                "Likt av " +
+                  buildPersonsList(post.likes.map(likes => likes.name))}
+            </div>
 
-            <BlockContent blocks={post.text} />
+            <PostBody text={post.text} />
 
-            <div className={"comments"}>No comments yet</div>
+            <div className={"comments"}>
+              {post.comments &&
+                post.comments.map(comment => (
+                  <>
+                    <h3>{comment.author.name}</h3>
+                    <BlockContent blocks={comment.text} />
+                  </>
+                ))}
+            </div>
           </>
         ))}
     </Layout>
@@ -67,9 +85,15 @@ export const query = graphql`
           }
           text: _rawText
           images {
-            asset {
-              _id
+            image {
+              asset {
+                _id
+              }
             }
+          }
+          comments: _rawComments(resolveReferences: { maxDepth: 3 })
+          likes {
+            name
           }
         }
       }
