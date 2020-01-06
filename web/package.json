@@ -18,6 +18,7 @@
     "gatsby": "^2.18.12",
     "gatsby-plugin-postcss": "^2.1.18",
     "gatsby-plugin-react-helmet": "^3.1.18",
+    "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sass": "^2.1.26",
     "gatsby-source-sanity": "^5.0.5",
     "node-sass": "^4.13.0",

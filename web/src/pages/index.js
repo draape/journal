@@ -9,6 +9,7 @@ import {
 import BlockContent from "@sanity/block-content-to-react"
 import Layout from "../components/layout/Layout"
 import Byline from "../components/byline/byline"
+import Controls from "../components/controls/controls"
 import PostBody from "../components/post-body/post-body"
 
 const PostPage = props => {
@@ -35,11 +36,7 @@ const PostPage = props => {
                 />
               ))}
 
-            <div className={"controls"}>
-              <a href="#like">Like</a>
-              <a href="#comment">Comment</a>
-              <a href="#download">Download</a>
-            </div>
+            <Controls />
 
             <div className={"likes"}>
               {post.likes &&
