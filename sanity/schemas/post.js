@@ -37,14 +37,26 @@ export default {
       title: "Images",
       name: "images",
       type: "array",
+      of: [{ type: "postImage" }]
+    },
+    {
+      title: "Likes",
+      name: "likes",
+      type: "array",
       of: [
         {
-          name: "postImage",
-          title: "Image",
-          type: "image",
-          options: {
-            hotspot: true
-          }
+          type: "reference",
+          to: [{ type: "person" }]
+        }
+      ]
+    },
+    {
+      title: "Comments",
+      name: "comments",
+      type: "array",
+      of: [
+        {
+          type: "comment"
         }
       ]
     }
