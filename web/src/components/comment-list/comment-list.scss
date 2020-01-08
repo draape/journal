@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+
+.comment-summary {
+    margin: 1.625rem;
+    a {
+        color: $dark-grey;
+        text-decoration: none;
+    }
+}
+
+.comment-list {
+    background-color: $another-grey;
+    border: {
+        top: 1px solid $yet-another-grey;
+        bottom: 1px solid $yet-another-grey;
+    }
+    padding: $gutter-padding;
+}
+
+.comment {
+    + .comment {
+        margin-top: 1rem;
+    }
+    
+    p {
+        margin: 0;
+    }
+
+    &__author_image {
+        border-radius: 50%;
+        width: 3.75rem;
+        height: 3.75rem;
+        float: left;
+        margin-right: 1rem;
+    }
+
+    &__byline {
+        display: flex;
+        margin: 0;
+        font-size: 1.125rem;
+    }
+
+    &__published {
+        font-weight: normal;
+        color: $dark-grey;
+    }
+}
