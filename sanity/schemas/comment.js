@@ -19,6 +19,12 @@ export default {
       type: "reference",
       to: [{ type: "person" }],
       validation: Rule => Rule.required()
+    },
+    {
+      title: "Published",
+      name: "published",
+      type: "datetime",
+      validation: Rule => Rule.required()
     }
   ]
 };
