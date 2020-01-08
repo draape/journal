@@ -1,13 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { imageUrlFor } from "../lib/image-url"
-import { buildImageObj, mapEdgesToNodes } from "../lib/helpers"
-import BlockContent from "@sanity/block-content-to-react"
+
+import { mapEdgesToNodes } from "../lib/helpers"
+
 import Layout from "../components/layout/Layout"
 import Byline from "../components/byline/byline"
+import ImageCarousel from "../components/image-carousel/image-carousel"
 import Controls from "../components/controls/controls"
 import Likes from "../components/likes/likes"
 import PostBody from "../components/post-body/post-body"
+import CommentList from "../components/comment-list/comment-list"
 
 const PostPage = props => {
   const posts =
@@ -23,31 +25,11 @@ const PostPage = props => {
               taggedPersons={post.taggedPersons}
               publishedDate={post.published}
             />
-            {post.images &&
-              post.images.map(image => (
-                <img
-                  src={imageUrlFor(buildImageObj(image.image))
-                    .width(600)
-                    .height(600)
-                    .url()}
-                />
-              ))}
-
+            <ImageCarousel images={post.images} />
             <Controls />
-
             <Likes persons={post.likes} />
-
             <PostBody text={post.text} />
-
-            <div className={"comments"}>
-              {post.comments &&
-                post.comments.map(comment => (
-                  <>
-                    <h3>{comment.author.name}</h3>
-                    <BlockContent blocks={comment.text} />
-                  </>
-                ))}
-            </div>
+            <CommentList comments={post.comments} />
           </>
         ))}
     </Layout>
