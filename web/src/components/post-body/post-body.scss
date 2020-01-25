@@ -1,18 +1,19 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .post-body {
-    margin: 1.625rem;
+  margin: 1.625rem;
 
-    &__show-more {
-        color: $dark-grey;
-        text-decoration: none;
+  &__show-more {
+    color: $dark-grey;
+    text-decoration: none;
 
-        &:hover, &:focus {
-            text-decoration: underline;
-        }
+    &:hover,
+    &:focus {
+      text-decoration: underline;
     }
+  }
 
-    span {
-        transition: visibility 0s, opacity 0.5s linear;
-    }
+  span {
+    transition: visibility 0s, opacity 0.5s linear;
+  }
 }
