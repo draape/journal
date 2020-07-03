@@ -1,7 +1,7 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .comment-summary {
-    margin: 1.625rem;
+    margin: 1rem 1.625rem;
     a {
         color: $dark-grey;
         text-decoration: none;
@@ -21,7 +21,7 @@
     + .comment {
         margin-top: 1rem;
     }
-    
+
     p {
         margin: 0;
     }
