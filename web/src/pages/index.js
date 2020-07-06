@@ -10,7 +10,11 @@ const PostPage = props => {
   const posts =
     props.data && props.data.posts && mapEdgesToNodes(props.data.posts)
 
-  return <Layout>{posts && posts.map(post => <Post post={post} />)}</Layout>
+  return (
+    <Layout>
+      {posts && posts.map((post, key) => <Post post={post} key={key} />)}
+    </Layout>
+  )
 }
 
 export const query = graphql`
