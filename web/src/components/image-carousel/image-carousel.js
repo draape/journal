@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 
 import { imageUrlFor } from "../../lib/image-url"
 import { buildImageObj } from "../../lib/helpers"
@@ -12,13 +12,6 @@ const ImageCarousel = ({ images }) => {
   const [transitionDuration, setTransitionDuration] = useState("0s")
   const maxLength = images.length - 1
   const maxMovement = maxLength * 600
-
-  useEffect(() => {
-    const wheelTimeout = setTimeout(() => {
-      handleMovementEnd()
-    }, 100)
-    return () => clearTimeout(wheelTimeout)
-  }, [movement])
 
   const handleWheel = e => {
     handleMovement(e.deltaX)
@@ -55,7 +48,7 @@ const ImageCarousel = ({ images }) => {
     setTransitionDuration("0s")
   }
 
-  const handleMovementEnd = () => {
+  const handleMovementEnd = useCallback(() => {
     const endPosition = movement / 600
     const endPartial = endPosition % 1
     const endingIndex = endPosition - endPartial
@@ -75,7 +68,7 @@ const ImageCarousel = ({ images }) => {
     }
 
     transitionTo(nextIndex, Math.min(0.5, 1 - Math.abs(endPartial)))
-  }
+  }, [movement, currentIndex])
 
   const transitionTo = (index, duration) => {
     setCurrentIndex(index)
@@ -84,11 +77,18 @@ const ImageCarousel = ({ images }) => {
   }
 
   useEffect(() => {
+    const wheelTimeout = setTimeout(() => {
+      handleMovementEnd()
+    }, 100)
+    return () => clearTimeout(wheelTimeout)
+  }, [movement, handleMovementEnd])
+
+  useEffect(() => {
     const transitionTimeout = setTimeout(() => {
       setTransitionDuration("0s")
     }, transitionDuration * 100)
     return () => clearTimeout(transitionTimeout)
-  }, [currentIndex])
+  }, [currentIndex, transitionDuration])
 
   return (
     <div
@@ -105,9 +105,11 @@ const ImageCarousel = ({ images }) => {
           transitionDuration: transitionDuration,
         }}
       >
-        {images.map(image => (
+        {images.map((image, key) => (
           <img
             className={"image-carousel__image"}
+            key={key}
+            alt={image.alt}
             src={imageUrlFor(buildImageObj(image.image))
               .width(600)
               .height(600)
