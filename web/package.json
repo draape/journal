@@ -29,6 +29,7 @@
     "read-more-react": "^1.0.9"
   },
   "devDependencies": {
+    "classnames": "^2.2.6",
     "prettier": "^1.19.1"
   },
   "repository": {

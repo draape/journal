@@ -1,33 +1,33 @@
 import React from "react"
+import cn from "classnames"
 
-import HeartIcon from "../../../static/heart.svg"
-import CommentIcon from "../../../static/comment.svg"
-import DownloadIcon from "../../../static/download.svg"
+import Icon from "../icon/icon"
 import "./controls.scss"
 
 const Controls = ({ isLiked, hasComments }) => (
-  <div className={"controls"}>
+  <div className="controls">
     <a
-      href={"#like"}
-      className={`controls__button controls__button--like ${
-        isLiked ? "active" : ""
-      }`}
+      href="#like"
+      className={cn("controls__button", {
+        "controls__button--like-filled": isLiked,
+        "controls__button--like": !isLiked,
+      })}
     >
-      <HeartIcon />
+      {isLiked ? <Icon name="heart-filled" /> : <Icon name="heart" />}
     </a>
     <a
-      href={"#comment"}
-      className={`controls__button controls__button--comment ${
-        hasComments ? "active" : ""
-      }`}
+      href="#comment"
+      className={cn("controls__button", "controls__button--comment", {
+        active: hasComments,
+      })}
     >
-      <CommentIcon />
+      <Icon name="comment" />
     </a>
     <a
-      href={"#download"}
-      className={"controls__button controls__button--download"}
+      href="#download"
+      className={cn("controls__button", "controls__button--download")}
     >
-      <DownloadIcon />
+      <Icon name="download" />
     </a>
   </div>
 )

@@ -1,26 +1,4 @@
-@import "../../styles/variables";
-
 .controls {
   margin: 1rem 1rem;
   display: flex;
-
-  &__button {
-    margin-right: 2rem;
-    color: $dark-grey;
-
-    svg path,
-    svg polygon,
-    svg polyline {
-      fill: currentColor;
-    }
-
-    &:hover {
-      color: $black;
-    }
-
-    &--like:hover,
-    &--like.active {
-      color: #e63b42;
-    }
-  }
 }
