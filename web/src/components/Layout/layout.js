@@ -7,7 +7,7 @@ import "./layout.scss"
 
 const Layout = ({ children }) => (
   <div class="site">
-    <Header siteTitle="Site title" />
+    <Header />
     <div className="content">{children}</div>
   </div>
 )
