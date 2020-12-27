@@ -1,7 +1,13 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
+
+.site {
+  margin: 0 auto;
+  max-width: 600px;
+  box-shadow: 0px 0px 10px 10px #222222;
+  border-left: 1px solid #222222;
+  border-right: 1px solid #222222;
+}
 
 .content {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: $white;
+  background-color: $white;
 }

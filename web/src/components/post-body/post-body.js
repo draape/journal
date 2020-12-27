@@ -1,6 +1,7 @@
 import React, { useState } from "react"
+
 import Truncate from "react-truncate"
-import blocksToHtml from "@sanity/block-content-to-html"
+import BlockContent from "@sanity/block-content-to-react"
 
 import "./post-body.scss"
 
@@ -13,14 +14,14 @@ const PostBody = ({ text }) => {
   }
 
   return (
-    <div className={"post-body"}>
+    <div className="post-body">
       <Truncate
         lines={!expanded && 3}
         ellipsis={
           <span>
             ...{" "}
             <a
-              className={"post-body__show-more"}
+              className="post-body__show-more"
               href="#show-more"
               onClick={showMore}
             >
@@ -29,13 +30,7 @@ const PostBody = ({ text }) => {
           </span>
         }
       >
-        <div
-          dangerouslySetInnerHTML={{
-            __html: blocksToHtml({
-              blocks: text,
-            }),
-          }}
-        />
+        <BlockContent blocks={text} />
       </Truncate>
     </div>
   )
