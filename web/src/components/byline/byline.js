@@ -6,17 +6,19 @@ import { buildImageObj, buildPersonsList } from "../../lib/helpers"
 import "./byline.scss"
 
 const Byline = ({ author, taggedPersons, publishedDate }) => (
-  <header className={"byline"}>
-    <img
-      className={"byline__author_image"}
-      src={imageUrlFor(buildImageObj(author.image))
-        .width(200)
-        .height(200)
-        .url()}
-      alt={author.name}
-    />
+  <header className="byline">
+    {author && author.image && (
+      <img
+        className="byline__author_image"
+        src={imageUrlFor(buildImageObj(author.image))
+          .width(200)
+          .height(200)
+          .url()}
+        alt={author.name}
+      />
+    )}
     <h2>
-      <span className={"byline__author"}>{author.name}</span>
+      <span className="byline__author">{author?.name}</span>
       {taggedPersons &&
         taggedPersons.length > 0 &&
         buildPersonsList(

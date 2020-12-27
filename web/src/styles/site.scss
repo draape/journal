@@ -1,13 +1,14 @@
 @import "variables";
 
-html, body {
-    margin: 0;
-    padding: 0;
-    background-color: $grey;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #353535; // TODO variable
 
-    font: {
-        family: 'Helvetica', sans-serif;
-        size: 100%;
-        color: $black;
-    }
+  font: {
+    family: "Helvetica", sans-serif;
+    size: 100%;
+    color: $black;
+  }
 }

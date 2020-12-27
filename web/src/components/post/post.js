@@ -17,7 +17,10 @@ const Post = ({ post }) => (
       publishedDate={post.published}
     />
     <ImageCarousel images={post.images} />
-    <Controls />
+    <Controls
+      isLiked={post.likes.length > 0}
+      hasComments={post.comments && post.comments.length > 0}
+    />
     <Likes persons={post.likes} />
     <PostBody text={post.text} />
     <CommentList comments={post.comments} />
