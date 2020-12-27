@@ -4,8 +4,9 @@ import post from "./post";
 import person from "./person";
 import comment from "./comment";
 import postImage from "./postImage";
+import siteSettings from "./siteSettings";
 
 module.exports = createSchema({
   name: "default",
-  types: schemaTypes.concat([post, person, comment, postImage])
+  types: schemaTypes.concat([siteSettings, post, person, comment, postImage]),
 });

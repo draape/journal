@@ -1,28 +1,28 @@
-import icon from "react-icons/lib/md/person";
+import MdPerson from "react-icons/md";
 
 export default {
   name: "person",
   title: "Person",
   type: "document",
-  icon,
+  MdPerson,
   fields: [
     {
       name: "name",
       title: "Name",
       type: "string",
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "image",
       title: "Image",
       type: "image",
       options: {
-        hotspot: true
+        hotspot: true,
       },
-      validation: Rule => Rule.required()
-    }
+      validation: (Rule) => Rule.required(),
+    },
   ],
   preview: {
-    select: { title: "name", media: "image" }
-  }
+    select: { title: "name", media: "image" },
+  },
 };
