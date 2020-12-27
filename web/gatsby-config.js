@@ -1,3 +1,5 @@
+const isProduction = process.env.NODE_ENV === "production"
+
 require("dotenv").config()
 
 module.exports = {
@@ -10,16 +12,8 @@ module.exports = {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: "production",
         token: process.env.SANITY_TOKEN,
-        watchMode: true,
-        overlayDrafts: true,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: /static/,
-        },
+        watchMode: !isProduction,
+        overlayDrafts: !isProduction,
       },
     },
   ],

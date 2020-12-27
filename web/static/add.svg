@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Hyttebok" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-7" transform="translate(-14.000000, -53.000000)" stroke="#000000" stroke-width="2">
+            <g id="Page-1" transform="translate(15.000000, 54.000000)">
+                <path d="M20,10 C20,4.47833333 15.5233333,0 10,0 C4.47833333,0 0,4.47833333 0,10 C0,15.5216667 4.47833333,20 10,20 C15.5233333,20 20,15.5216667 20,10 Z" id="Stroke-1"></path>
+                <path d="M10,17 L10,3" id="Stroke-3"></path>
+                <path d="M17,10 L3,10" id="Stroke-5"></path>
+            </g>
+        </g>
+    </g>
+</svg>
