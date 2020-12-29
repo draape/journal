@@ -2,9 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import GatsbyImage from "gatsby-image"
 
-import Button from "../button/button"
-
-import "./header.scss"
+import Button from "components/button"
 
 const Header = () => {
   const { sanitySiteSettings } = useStaticQuery(

@@ -1,8 +1,7 @@
 import React from "react"
 import cn from "classnames"
 
-import Icon from "../icon/icon"
-import "./controls.scss"
+import Icon from "components/icon"
 
 const Controls = ({ isLiked, hasComments }) => (
   <div className="controls">

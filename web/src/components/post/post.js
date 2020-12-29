@@ -1,16 +1,14 @@
 import React from "react"
 
-import Byline from "../byline/byline"
-import ImageCarousel from "../image-carousel/image-carousel"
-import Controls from "../controls/controls"
-import Likes from "../likes/likes"
-import PostBody from "../post-body/post-body"
-import CommentList from "../comment-list/comment-list"
-
-import "./post.scss"
+import Byline from "components/byline"
+import ImageCarousel from "components/image-carousel"
+import Controls from "components/controls"
+import Likes from "components/likes"
+import PostBody from "components/post-body"
+import CommentList from "components/comment-list"
 
 const Post = ({ post }) => (
-  <div className={"post"}>
+  <div className="post">
     <Byline
       author={post.author}
       taggedPersons={post.taggedPersons}
