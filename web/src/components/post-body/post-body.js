@@ -3,8 +3,6 @@ import React, { useState } from "react"
 import Truncate from "react-truncate"
 import BlockContent from "@sanity/block-content-to-react"
 
-import "./post-body.scss"
-
 const PostBody = ({ text }) => {
   const [expanded, setExpanded] = useState(false)
 

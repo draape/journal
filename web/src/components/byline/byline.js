@@ -1,9 +1,7 @@
 import React from "react"
 
-import { imageUrlFor } from "../../lib/image-url"
-import { buildImageObj, buildPersonsList } from "../../lib/helpers"
-
-import "./byline.scss"
+import { imageUrlFor } from "lib/image-url"
+import { buildImageObj, buildPersonsList } from "lib/helpers"
 
 const Byline = ({ author, taggedPersons, publishedDate }) => (
   <header className="byline">

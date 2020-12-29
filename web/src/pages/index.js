@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import { mapEdgesToNodes } from "../lib/helpers"
+import { mapEdgesToNodes } from "lib/helpers"
 
-import Layout from "../components/layout/Layout"
-import Post from "../components/post/post"
+import Layout from "components/layout"
+import Post from "components/post"
 
 const PostPage = props => {
   const posts =

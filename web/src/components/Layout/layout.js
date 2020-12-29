@@ -1,9 +1,8 @@
 import React from "react"
 
-import Header from "../header/header"
+import Header from "components/header"
 
 import "../../styles/site.scss"
-import "./layout.scss"
 
 const Layout = ({ children }) => (
   <div class="site">

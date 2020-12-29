@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react"
 
-import { imageUrlFor } from "../../lib/image-url"
-import { buildImageObj } from "../../lib/helpers"
-
-import "./image-carousel.scss"
+import { imageUrlFor } from "lib/image-url"
+import { buildImageObj } from "lib/helpers"
 
 const ImageCarousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -92,14 +90,14 @@ const ImageCarousel = ({ images }) => {
 
   return (
     <div
-      className={"image-carousel"}
+      className="image-carousel"
       onWheel={handleWheel}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
       <div
-        className={"image-carousel__swiper"}
+        className="image-carousel__swiper"
         style={{
           transform: `translateX(${movement * -1}px)`,
           transitionDuration: transitionDuration,
@@ -107,7 +105,7 @@ const ImageCarousel = ({ images }) => {
       >
         {images.map((image, key) => (
           <img
-            className={"image-carousel__image"}
+            className="image-carousel__image"
             key={key}
             alt={image.alt}
             src={imageUrlFor(buildImageObj(image.image))
@@ -119,7 +117,7 @@ const ImageCarousel = ({ images }) => {
       </div>
       {movement !== 0 && (
         <button
-          className={"image-carousel__back"}
+          className="image-carousel__back"
           onClick={() => {
             transitionTo(currentIndex - 1, 0.5)
           }}
@@ -129,7 +127,7 @@ const ImageCarousel = ({ images }) => {
       )}
       {movement !== maxMovement && (
         <button
-          className={"image-carousel__next"}
+          className="image-carousel__next"
           onClick={() => {
             transitionTo(currentIndex + 1, 0.5)
           }}
