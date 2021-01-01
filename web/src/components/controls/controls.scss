@@ -1,4 +1,22 @@
 .controls {
   margin: 1rem 1rem;
   display: flex;
+
+  &__download-button {
+    transition: all 0.2s ease-in-out;
+    color: #000;
+
+    #arrow {
+      transition: transform 0.2s ease-in-out;
+      transform: translate(9px, 0);
+    }
+
+    &:hover {
+      color: #1cd1a1;
+
+      #arrow {
+        transform: translate(9px, 4px);
+      }
+    }
+  }
 }

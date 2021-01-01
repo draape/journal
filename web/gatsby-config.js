@@ -9,6 +9,12 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
+      resolve: "gatsby-plugin-svgr",
+      options: {
+        svgo: false,
+      },
+    },
+    {
       resolve: "gatsby-source-sanity",
       options: {
         projectId: process.env.SANITY_PROJECT_ID,
