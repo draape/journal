@@ -5,7 +5,7 @@ import Header from "components/header"
 import "../../styles/site.scss"
 
 const Layout = ({ children }) => (
-  <div class="site">
+  <div className="site">
     <Header />
     <div className="content">{children}</div>
   </div>
