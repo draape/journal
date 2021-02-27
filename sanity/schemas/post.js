@@ -7,14 +7,14 @@ export default {
       title: "Text",
       name: "text",
       type: "array",
-      of: [{ type: "block" }]
+      of: [{ type: "block" }],
     },
     {
       title: "Author",
       name: "author",
       type: "reference",
       to: [{ type: "person" }],
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       title: "Tag people",
@@ -23,21 +23,21 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "person" }]
-        }
-      ]
+          to: [{ type: "person" }],
+        },
+      ],
     },
     {
       title: "Published",
       name: "published",
       type: "datetime",
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       title: "Images",
       name: "images",
       type: "array",
-      of: [{ type: "postImage" }]
+      of: [{ type: "postImage" }],
     },
     {
       title: "Likes",
@@ -46,9 +46,9 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "person" }]
-        }
-      ]
+          to: [{ type: "person" }],
+        },
+      ],
     },
     {
       title: "Comments",
@@ -56,13 +56,13 @@ export default {
       type: "array",
       of: [
         {
-          type: "comment"
-        }
-      ]
-    }
+          type: "comment",
+        },
+      ],
+    },
   ],
   initialValue: () => ({
-    published: new Date().toISOString()
+    published: new Date().toISOString(),
   }),
   preview: {
     select: { author: "author.name", date: "published" },
@@ -72,8 +72,8 @@ export default {
 
       return {
         title: `${day}.${month}.${year}`,
-        subtitle: `By: ${author ? author : "unknown"}`
+        subtitle: `By: ${author ? author : "unknown"}`,
       };
-    }
-  }
+    },
+  },
 };

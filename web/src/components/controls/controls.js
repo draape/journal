@@ -1,13 +1,16 @@
 import React from "react"
 
-import { ReactComponent as DownloadIcon } from "static/download.svg"
+import DownloadIcon from "../../../static/download.svg"
 
-const Controls = () => (
-  <div className="controls">
-    <a href="#download" className="controls__download-button">
-      <DownloadIcon />
-    </a>
-  </div>
-)
+const Controls = ({ imageUrl }) => {
+  // console.log(imageUrl)
+  return (
+    <div className="controls">
+      <a href={imageUrl} className="controls__download-button" download>
+        <DownloadIcon />
+      </a>
+    </div>
+  )
+}
 
 export default Controls

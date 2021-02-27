@@ -9,9 +9,11 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
-      resolve: "gatsby-plugin-svgr",
+      resolve: "gatsby-plugin-react-svg",
       options: {
-        svgo: false,
+        rule: {
+          include: /static/,
+        },
       },
     },
     {

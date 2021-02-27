@@ -40,6 +40,7 @@ export const query = graphql`
             image {
               asset {
                 _id
+                url
               }
             }
           }
