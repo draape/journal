@@ -4,13 +4,14 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #353535; // TODO variable
+  background-color: $color--grey-970;
 
   font: {
-    family: "Helvetica", sans-serif;
-    size: 100%;
-    color: $black;
+    family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+      Helvetica, Arial, "Lucida Grande", sans-serif;
+    weight: 300;
   }
+  color: $color--black;
 }
 
 @import "../components/**/*.scss";
