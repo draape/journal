@@ -1,20 +1,16 @@
+import { MdPhotoLibrary } from "react-icons/md";
+
 export default {
   name: "post",
   title: "Posts",
   type: "document",
+  icon: MdPhotoLibrary,
   fields: [
     {
       title: "Text",
       name: "text",
       type: "array",
       of: [{ type: "block" }],
-    },
-    {
-      title: "Author",
-      name: "author",
-      type: "reference",
-      to: [{ type: "person" }],
-      validation: (Rule) => Rule.required(),
     },
     {
       title: "Tag people",
@@ -26,6 +22,7 @@ export default {
           to: [{ type: "person" }],
         },
       ],
+      validation: (Rule) => Rule.required().min(1),
     },
     {
       title: "Published",
@@ -39,40 +36,36 @@ export default {
       type: "array",
       of: [{ type: "postImage" }],
     },
-    {
-      title: "Likes",
-      name: "likes",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "person" }],
-        },
-      ],
-    },
-    {
-      title: "Comments",
-      name: "comments",
-      type: "array",
-      of: [
-        {
-          type: "comment",
-        },
-      ],
-    },
   ],
   initialValue: () => ({
     published: new Date().toISOString(),
   }),
   preview: {
-    select: { author: "author.name", date: "published" },
+    select: {
+      person1: "taggedPersons.0.name",
+      person2: "taggedPersons.1.name",
+      person3: "taggedPersons.2.name",
+      taggedPersons: "taggedPersons",
+      date: "published",
+    },
     prepare(selection) {
-      const { author, date } = selection;
+      const { taggedPersons, date } = selection;
       const [year, month, day] = date.split("T")[0].split("-");
+
+      const persons =
+        taggedPersons && Object.values(taggedPersons).filter((x) => x);
+      const unmapped = persons?.filter((x) => !x.name).length ?? 0;
+
+      const moreText = unmapped > 0 ? ` and ${unmapped} more` : "";
 
       return {
         title: `${day}.${month}.${year}`,
-        subtitle: `By: ${author ? author : "unknown"}`,
+        subtitle: `${
+          persons
+            ?.filter((x) => x.name)
+            .map((x) => x.name)
+            .join(", ") ?? ""
+        } ${moreText}`,
       };
     },
   },

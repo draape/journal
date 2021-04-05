@@ -1,15 +1,19 @@
 export default {
   name: "postImage",
   title: "Image",
-  type: "object",
+  type: "image",
+  options: {
+    hotspot: true,
+  },
   fields: [
     {
-      name: "image",
-      title: "Image",
-      type: "image",
+      name: "alt",
+      title: "Alternative text",
+      type: "string",
+      validation: (Rule) => Rule.required(),
       options: {
-        hotspot: true
-      }
-    }
-  ]
+        isHighlighted: true,
+      },
+    },
+  ],
 };
