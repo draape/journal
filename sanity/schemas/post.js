@@ -7,6 +7,12 @@ export default {
   icon: MdPhotoLibrary,
   fields: [
     {
+      title: "Images",
+      name: "images",
+      type: "array",
+      of: [{ type: "postImage" }],
+    },
+    {
       title: "Text",
       name: "text",
       type: "array",
@@ -29,12 +35,6 @@ export default {
       name: "published",
       type: "datetime",
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: "Images",
-      name: "images",
-      type: "array",
-      of: [{ type: "postImage" }],
     },
   ],
   initialValue: () => ({
