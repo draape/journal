@@ -12,12 +12,8 @@ const Header = () => {
           siteName
           logo {
             asset {
-              fixed(width: 200) {
-                base64
-                width
-                height
-                src
-                srcSet
+              fixed(height: 32) {
+                ...GatsbySanityImageFixed
               }
             }
           }
@@ -34,6 +30,7 @@ const Header = () => {
       <GatsbyImage
         fixed={sanitySiteSettings.logo.asset.fixed}
         alt={sanitySiteSettings.siteName}
+        imgStyle={{ objectFit: "contain" }}
       />
       <Button className="header__search-button" icon="search">
         Search

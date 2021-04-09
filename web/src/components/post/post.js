@@ -8,16 +8,14 @@ import PostBody from "components/post-body"
 const Post = ({ post }) => {
   return (
     <div className="post">
-      <ImageCarousel images={post.images} />
+      {/* <ImageCarousel images={post.images} /> */}
       <Byline
         taggedPersons={post.taggedPersons}
         publishedDate={post.published}
       />
       <Controls
-        isLiked={post.likes.length > 0}
-        hasComments={post.comments && post.comments.length > 0}
         imageUrl={
-          post.images.length > 0 ? post.images[0].image.asset.url : undefined
+          post.images?.length > 0 ? post.images[0].image.asset.url : undefined
         }
       />
       {post.text && <PostBody text={post.text} />}
