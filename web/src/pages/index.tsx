@@ -35,7 +35,7 @@ export const query = graphql`
         text: _rawText
         images {
           asset {
-            gatsbyImageData(width: 550)
+            gatsbyImageData(width: 550, aspectRatio: 1)
             url
           }
         }
