@@ -8,4 +8,9 @@
   position: sticky;
   top: 0;
   z-index: 100;
+
+  @media screen and (min-width: 34rem) {
+    position: static;
+    border: none;
+  }
 }

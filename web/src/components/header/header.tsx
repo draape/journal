@@ -2,9 +2,9 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import Button from "components/button"
+import Button from "components/button/button"
 
-const Header = () => {
+const Header: React.FC = () => {
   const { siteSettings } = useStaticQuery(
     graphql`
       query {
@@ -12,7 +12,7 @@ const Header = () => {
           siteName
           logo {
             asset {
-              gatsbyImageData(height: 32)
+              gatsbyImageData(height: 32, placeholder: NONE)
             }
           }
         }
@@ -27,7 +27,11 @@ const Header = () => {
       <Button className="header__add-button" icon="add">
         Add
       </Button>
-      <GatsbyImage image={logo} alt={siteSettings.siteName} />
+      {logo ? (
+        <GatsbyImage image={logo} alt={siteSettings.siteName} />
+      ) : (
+        <h1>{siteSettings.siteName}</h1>
+      )}
       <Button className="header__search-button" icon="search">
         Search
       </Button>
