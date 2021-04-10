@@ -8,17 +8,23 @@ import PostBody from "components/post-body"
 const Post = ({ post }) => {
   return (
     <div className="post">
-      {post.images && <ImageCarousel images={post.images} />}
-      <Byline
-        taggedPersons={post.taggedPersons}
-        publishedDate={post.published}
-      />
-      <Controls
-        imageUrl={
-          post.images?.length > 0 ? post.images[0].asset.url : undefined
-        }
-      />
-      {post.text && <PostBody text={post.text} />}
+      {post.images && post.images.length > 0 && (
+        <div className="post__image">
+          <ImageCarousel images={post.images} />
+          <Controls
+            imageUrl={
+              post.images?.length > 0 ? post.images[0].asset.url : undefined
+            }
+          />
+        </div>
+      )}
+      <div className="post__text">
+        <Byline
+          taggedPersons={post.taggedPersons}
+          publishedDate={post.published}
+        />
+        {post.text && <PostBody text={post.text} />}
+      </div>
     </div>
   )
 }

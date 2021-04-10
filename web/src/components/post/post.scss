@@ -1,3 +1,26 @@
 .post {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
   padding-bottom: 0.1px; // Fix for collapsing margins
+  background-color: white;
+
+  @media screen and (min-width: 34rem) {
+    flex-direction: row;
+    padding: 1rem;
+    margin: 1rem 1rem 2rem;
+    border: 1px solid $color--grey-920;
+  }
+
+  &__image {
+    margin-bottom: 1rem;
+
+    @media screen and (min-width: 34rem) {
+      margin-right: 1rem;
+    }
+  }
+
+  &__text {
+    padding: 1rem;
+  }
 }
