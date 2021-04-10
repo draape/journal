@@ -33,6 +33,12 @@ export const query = graphql`
           name
         }
         text: _rawText
+        images {
+          asset {
+            gatsbyImageData(width: 550)
+            url
+          }
+        }
       }
     }
   }

@@ -4,18 +4,6 @@ require("dotenv").config()
 
 module.exports = {
   plugins: [
-    "gatsby-plugin-sass",
-    "gatsby-plugin-react-helmet",
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: /static/,
-        },
-      },
-    },
     {
       resolve: "gatsby-source-sanity",
       options: {
@@ -24,6 +12,19 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
         watchMode: !isProduction,
         overlayDrafts: !isProduction,
+      },
+    },
+    "gatsby-plugin-sass",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /static/,
+        },
       },
     },
   ],
