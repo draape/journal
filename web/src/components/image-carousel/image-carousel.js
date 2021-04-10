@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
+import Image from "components/image/image"
 
 const ImageCarousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -101,10 +102,14 @@ const ImageCarousel = ({ images }) => {
           transitionDuration: transitionDuration,
         }}
       >
-        {images.map((image, key) => {
-          const img = getImage(image?.asset)
-          return <GatsbyImage image={img} alt={image.alt} />
-        })}
+        {images.map((image, key) => (
+          <Image
+            imageAsset={image.asset}
+            alt={image.alt}
+            url={image.asset.url}
+            key={key}
+          />
+        ))}
       </div>
       {movement !== 0 && (
         <button

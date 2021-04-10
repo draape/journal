@@ -1,0 +1,9 @@
+.image {
+  position: relative;
+
+  &__download {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+}
