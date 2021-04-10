@@ -3,10 +3,14 @@ import React, { useState } from "react"
 import Truncate from "react-truncate"
 import BlockContent from "@sanity/block-content-to-react"
 
-const PostBody = ({ text }) => {
+interface PostBodyProps {
+  text: any[]
+}
+
+const PostBody: React.FC<PostBodyProps> = ({ text }) => {
   const [expanded, setExpanded] = useState(false)
 
-  const showMore = e => {
+  const showMore = (e: React.MouseEvent) => {
     e.preventDefault()
     setExpanded(true)
   }
