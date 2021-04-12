@@ -25,13 +25,16 @@
     "gatsby-source-sanity": "7.0.0",
     "gatsby-transformer-sharp": "^3.1.0",
     "node-sass": "^4.13.0",
-    "react": "^16.12.0",
+    "react": "^16.14.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-swipe": "^6.0.4",
     "react-truncate": "^2.4.0",
-    "read-more-react": "^1.0.9"
+    "read-more-react": "^1.0.9",
+    "swipe-js-iso": "^2.1.5"
   },
   "devDependencies": {
+    "@types/react-swipe": "^6.0.0",
     "classnames": "^2.2.6",
     "directory-named-webpack-plugin": "^4.0.1",
     "import-glob-loader": "^1.1.0",
