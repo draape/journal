@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+
+    <g id="Arrow" transform="translate(15.000000, 15.000000) rotate(-180.000000) translate(-15.000000, -15.000000) " fill-rule="nonzero">
+        <circle id="Oval-3" fill="#50E3C2" cx="15" cy="15" r="15"></circle>
+        <polygon id="Triangle" fill="#FFFFFF" transform="translate(16.754506, 15.000000) rotate(-90.000000) translate(-16.754506, -15.000000) " points="16.754506 19.2454932 10.373511 10.754506 23.135501 10.754506"></polygon>
+    </g>
+
+</svg>

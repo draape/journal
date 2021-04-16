@@ -2,24 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "components/layout/layout"
-import Post from "components/post/post"
+import Post, { PostProps } from "components/post/post"
 
 interface IndexProps {
   data: {
     posts: {
-      nodes: {
-        id: string
-        published: Date
-        taggedPersons: { name: string }
-        text: object[]
-      }[]
+      nodes: PostProps[]
     }
   }
 }
 
 const Index: React.FC<IndexProps> = ({ data: { posts } }) => (
   <Layout>
-    {posts && posts.nodes.map((post, key) => <Post post={post} key={key} />)}
+    {posts && posts.nodes.map((post, key) => <Post {...post} key={key} />)}
   </Layout>
 )
 
