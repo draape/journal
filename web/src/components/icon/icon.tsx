@@ -1,12 +1,16 @@
-import React from "react"
-import cn from "classnames"
+import React, { lazy, Suspense } from "react"
 
 interface IconProps {
-  className?: string
   name: string
 }
 
-const Icon: React.FC<IconProps> = ({ className, name }) =>
-  !name ? null : <div className={cn("icon", `icon--${name}`, className)} />
+const Icon: React.FC<IconProps> = ({ name }) => {
+  const Component = lazy(() => import(`../../../static/${name}.svg`))
+  return (
+    <Suspense fallback="">
+      <Component />
+    </Suspense>
+  )
+}
 
 export default Icon

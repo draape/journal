@@ -22,7 +22,7 @@ const Byline: React.FC<BylineProps> = ({ taggedPersons, publishedDate }) => (
       {taggedPersons &&
         taggedPersons.length > 0 &&
         buildPersonsList(
-          taggedPersons.map(person => person.name),
+          taggedPersons.map((person: any) => person.name),
           false
         )}
     </span>
