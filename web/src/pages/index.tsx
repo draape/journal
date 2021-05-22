@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { withAuthenticationRequired } from "@auth0/auth0-react"
 
 import Layout from "components/layout/layout"
 import Post, { PostProps } from "components/post/post"
@@ -39,4 +40,4 @@ export const query = graphql`
   }
 `
 
-export default Index
+export default withAuthenticationRequired(Index)

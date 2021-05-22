@@ -4,6 +4,7 @@ import cn from "classnames"
 import Byline from "components/byline/byline"
 import ImageCarousel from "components/image-carousel/image-carousel"
 import PostBody from "components/post-body/post-body"
+import ArticleContent from "components/article-content/article-content"
 
 export interface PostProps {
   images: any[]
@@ -28,10 +29,10 @@ const Post: React.FC<PostProps> = ({
         <ImageCarousel images={images} />
       </div>
     )}
-    <div className="post__text">
+    <ArticleContent>
       <Byline taggedPersons={taggedPersons} publishedDate={published} />
       {text && <PostBody text={text} />}
-    </div>
+    </ArticleContent>
   </div>
 )
 
