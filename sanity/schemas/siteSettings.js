@@ -8,11 +8,17 @@ export default {
       name: "siteName",
       title: "Site name",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "logo",
       title: "Logo",
       type: "image",
+      description: "File format must be SVG",
+      validation: (Rule) => Rule.required(),
+      options: {
+        accept: ["image/svg+xml"],
+      },
     },
   ],
   preview: {

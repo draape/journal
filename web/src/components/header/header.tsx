@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Helmet } from "react-helmet"
 
 import Button from "components/button/button"
 
@@ -12,7 +12,7 @@ const Header: React.FC = () => {
           siteName
           logo {
             asset {
-              gatsbyImageData(height: 32, placeholder: NONE)
+              url
             }
           }
         }
@@ -20,18 +20,19 @@ const Header: React.FC = () => {
     `
   )
 
-  const logo = getImage(siteSettings.logo?.asset)
-
   return (
     <header className="header">
+      <Helmet>
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href={siteSettings.logo.asset.url}
+        />
+      </Helmet>
       <Button className="header__add-button" icon="add">
         Add
       </Button>
-      {logo ? (
-        <GatsbyImage image={logo} alt={siteSettings.siteName} />
-      ) : (
-        <h1>{siteSettings.siteName}</h1>
-      )}
+      <img src={siteSettings.logo.asset.url} alt={siteSettings.siteName} />
       <Button className="header__search-button" icon="search">
         Search
       </Button>

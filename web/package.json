@@ -38,6 +38,7 @@
   "devDependencies": {
     "@types/classnames": "^2.2.11",
     "@types/loadable__component": "^5.13.3",
+    "@types/react-helmet": "^6.1.1",
     "@types/react-swipe": "^6.0.0",
     "classnames": "^2.2.6",
     "directory-named-webpack-plugin": "^4.0.1",
