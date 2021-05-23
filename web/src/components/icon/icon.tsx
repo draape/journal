@@ -1,16 +1,13 @@
-import React, { lazy, Suspense } from "react"
+import React from "react"
+import loadable from "@loadable/component"
 
 interface IconProps {
   name: string
 }
 
 const Icon: React.FC<IconProps> = ({ name }) => {
-  const Component = lazy(() => import(`../../../static/${name}.svg`))
-  return (
-    <Suspense fallback="">
-      <Component />
-    </Suspense>
-  )
+  const Component = loadable(() => import(`../../../static/${name}.svg`))
+  return <Component />
 }
 
 export default Icon
