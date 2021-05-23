@@ -29,6 +29,7 @@ export default {
         },
       ],
       validation: (Rule) => Rule.required().min(1),
+      options: { editModal: "popover" },
     },
     {
       title: "Published",
