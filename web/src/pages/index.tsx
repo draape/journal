@@ -21,7 +21,7 @@ const Index: React.FC<IndexProps> = ({ data: { posts } }) => (
 
 export const query = graphql`
   query Posts {
-    posts: allSanityPost {
+    posts: allSanityPost(sort: { fields: published, order: DESC }) {
       nodes {
         id
         published
