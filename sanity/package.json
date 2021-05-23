@@ -22,7 +22,8 @@
     "@sanity/desk-tool": "^2.7.4",
     "react": "^16.9",
     "react-dom": "^16.9",
-    "react-icons": "^4.1.0"
+    "react-icons": "^4.1.0",
+    "sanity-plugin-netlify-deploy-status-badge": "^0.0.3"
   },
   "devDependencies": {}
 }
