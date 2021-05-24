@@ -10,6 +10,7 @@ const Header: React.FC = () => {
       query {
         siteSettings: sanitySiteSettings {
           siteName
+          siteUrl
           logo {
             asset {
               url
@@ -29,7 +30,11 @@ const Header: React.FC = () => {
           href={siteSettings.logo.asset.url}
         />
       </Helmet>
-      <Button className="header__add-button" icon="add">
+      <Button
+        className="header__add-button"
+        icon="add"
+        onClick={() => window.location.assign(siteSettings.siteUrl)}
+      >
         Add
       </Button>
       <img src={siteSettings.logo.asset.url} alt={siteSettings.siteName} />

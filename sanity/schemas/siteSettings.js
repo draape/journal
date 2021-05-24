@@ -11,6 +11,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "siteUrl",
+      title: "Site URL",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "logo",
       title: "Logo",
       type: "image",
