@@ -5,18 +5,6 @@ require("dotenv").config()
 module.exports = {
   plugins: [
     {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        name: process.env.GATSBY_APP_NAME,
-        short_name: process.env.GATSBY_APP_SHORT_NAME,
-        start_url: "/",
-        background_color: process.env.GATSBY_BACKGROUND_COLOR,
-        theme_color: process.env.GATSBY_THEME_COLOR,
-        display: "standalone",
-        icon: process.env.GATSBY_ICON_URL,
-      },
-    },
-    {
       resolve: "gatsby-source-sanity",
       options: {
         projectId: process.env.GATSBY_SANITY_PROJECT_ID,
