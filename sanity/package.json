@@ -14,16 +14,16 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.7.4",
-    "@sanity/components": "^2.2.6",
-    "@sanity/core": "^2.7.4",
-    "@sanity/default-layout": "^2.7.4",
-    "@sanity/default-login": "^2.7.0",
-    "@sanity/desk-tool": "^2.7.4",
-    "react": "^16.9",
-    "react-dom": "^16.9",
-    "react-icons": "^4.1.0",
-    "sanity-plugin-netlify-deploy-status-badge": "^0.0.3"
-  },
-  "devDependencies": {}
+    "@sanity/base": "^2.23.2",
+    "@sanity/components": "^2.14.0",
+    "@sanity/core": "^2.23.2",
+    "@sanity/default-layout": "^2.23.2",
+    "@sanity/default-login": "^2.23.2",
+    "@sanity/desk-tool": "^2.23.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "sanity-plugin-netlify-deploy-status-badge": "^0.0.3",
+    "styled-components": "^5.3.3"
+  }
 }

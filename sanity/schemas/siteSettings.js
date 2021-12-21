@@ -11,6 +11,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "siteShortName",
+      title: "Site short name",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "siteUrl",
       title: "Site URL",
       type: "string",
